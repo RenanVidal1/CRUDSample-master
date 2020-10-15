@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CRUDSample.AddEmployeePage" Title="Adicionar Mercadoria">
+    <ContentPage.Content>
+        <StackLayout Padding="5">
+            <Label Text="Mercadoria" FontAttributes="Bold" TextColor="Black"/>
+            <Entry Placeholder="Mercadoria" FontSize="Small" HorizontalOptions="FillAndExpand" x:Name="name"/>
+
+            <Label Text="Peso" FontAttributes="Bold" TextColor="Black"/>
+            <Entry Placeholder="Peso" FontSize="Small" HorizontalOptions="FillAndExpand" x:Name="phoneNumber" 
+                   Keyboard="Numeric"/>
+            
+            <Label Text="Produtor" FontAttributes="Bold" TextColor="Black"/>
+            <Entry Placeholder="Produtor" FontSize="Small" HorizontalOptions="FillAndExpand" x:Name="address"/>
+            
+     
+            <Label Text="Email" FontAttributes="Bold" TextColor="Black"/>
+            <Entry Placeholder="Email" FontSize="Small" HorizontalOptions="FillAndExpand" Keyboard="Email" x:Name="email"/>
+           
+
+            <Button Text="Salvar" Clicked="SaveEmployee" HorizontalOptions="FillAndExpand" 
+                    BackgroundColor="red" TextColor="White" x:Name="saveBtn"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
