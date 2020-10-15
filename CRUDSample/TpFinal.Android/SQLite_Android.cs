@@ -3,16 +3,21 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using CRUDSample.iOS;
-using Foundation;
+
+using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Runtime;
+using Android.Views;
+using Android.Widget;
+using CRUDSample.Droid;
 using SQLite;
-using UIKit;
 using Xamarin.Forms;
 
-[assembly: Dependency(typeof(SQLite_iOS))]
-namespace CRUDSample.iOS
+[assembly:Dependency(typeof(SQLite_Android))]
+namespace CRUDSample.Droid
 {
-    public class SQLite_iOS : ISQLite
+    class SQLite_Android : ISQLite
     {
         SQLiteConnection con;
         public SQLiteConnection GetConnectionWithCreateDatabase()
@@ -44,13 +49,13 @@ namespace CRUDSample.iOS
             List<Employee> employees = con.Query<Employee>(sql);
             return employees;
         }
-        public bool UpdateEmployee(Employee employee)
+        public bool UpdateEmployee(Employee mercadoria)
         {
             bool res = false;
             try
             {
-                string sql = $"UPDATE Employee SET Name='{employee.Name}',Address='{employee.Address}',PhoneNumber='{employee.PhoneNumber}'," +
-                                $"Email='{employee.Email}' WHERE Id={employee.Id}";
+                string sql = $"UPDATE Employee SET Name='{mercadoria.Name}',Address='{mercadoria.Address}',PhoneNumber='{mercadoria.PhoneNumber}'," +
+                                $"Email='{mercadoria.Email}' WHERE Id={mercadoria.Id}";
                 con.Execute(sql);
                 res = true;
             }
@@ -65,5 +70,5 @@ namespace CRUDSample.iOS
             string sql = $"DELETE FROM Employee WHERE Id={Id}";
             con.Execute(sql);
         }
-    }
+    }   
 }
